@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aliengotchi</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- PANTALLA DE ADOPCIÓN -->
+      <div id="adoptionScreen" class="screen active">
+        <div class="retro-console">
+          <h1 class="glitch">ALIENGOTCHI</h1>
+          <div class="pixel-alien" id="adoptionAlien">👾</div>
+          <p class="instruction">¡Adopta tu nuevo amigo alienígena!</p>
+
+          <form id="adoptionForm">
+            <input
+              type="text"
+              id="alienName"
+              placeholder="Nombre de tu alien"
+              maxlength="12"
+              required
+            />
+            <button type="submit" class="retro-btn">ADOPTAR</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- PANTALLA PRINCIPAL DEL JUEGO -->
+      <div id="gameScreen" class="screen">
+        <div class="retro-console">
+          <div class="alien-display">
+            <div class="pixel-alien" id="alienImage">👾</div>
+            <h2 id="alienNameDisplay">Alien</h2>
+          </div>
+
+          <!-- BARRAS DE ESTADO -->
+          <div class="stats-container">
+            <div class="stat">
+              <label>🍔 HAMBRE</label>
+              <progress id="hambreBar" value="70" max="100"></progress>
+              <span id="hambrePercent">70%</span>
+            </div>
+            <div class="stat">
+              <label>⚡ ENERGÍA</label>
+              <progress id="energiaBar" value="70" max="100"></progress>
+              <span id="energiaPercent">70%</span>
+            </div>
+            <div class="stat">
+              <label>😊 FELICIDAD</label>
+              <progress id="felicidadBar" value="70" max="100"></progress>
+              <span id="felicidadPercent">70%</span>
+            </div>
+          </div>
+
+          <!-- BOTONES DE INTERACCIÓN -->
+          <div class="buttons-container">
+            <button class="action-btn" id="alimentarBtn">🍕 ALIMENTAR</button>
+            <button class="action-btn" id="jugarBtn">🎮 JUGAR</button>
+            <button class="action-btn" id="dormirBtn">😴 DORMIR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANTALLA DE GAME OVER (Sprint 3) -->
+      <div id="gameOverScreen" class="screen">
+        <div class="retro-console">
+          <h1 class="glitch">GAME OVER</h1>
+          <div class="pixel-alien">💀👾💀</div>
+          <p id="gameOverMessage">Tu Aliengotchi ha muerto...</p>
+          <button id="restartBtn" class="retro-btn">REINICIAR</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
