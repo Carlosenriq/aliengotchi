@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.retro-console {
+    background: #1a1f2e;
+    border: 4px solid #00ff9d;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+}
+
+.glitch {
+    font-size: 2.5em;
+    color: #00ff9d;
+    margin-bottom: 20px;
+}
+
+.pixel-alien {
+    font-size: 4em;
+}
+
+.instruction {
+    color: #00ff9d;
+    margin: 15px 0;
+}
+
+#adoptionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#alienName {
+    background: #0a0e1a;
+    border: 2px solid #00ff9d;
+    color: #00ff9d;
+    padding: 12px;
+    font-family: monospace;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.retro-btn,
+.action-btn {
+    background: #0a0e1a;
+    border: 2px solid #00ff9d;
+    color: #00ff9d;
+    padding: 12px;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.retro-btn:hover,
+.action-btn:hover {
+    background: #00ff9d;
+    color: #0a0e1a;
+}
+
+.stats-container {
+    margin: 25px 0;
+    text-align: left;
+}
+
+.stat {
+    margin-bottom: 15px;
+}
+
+.stat label {
+    display: inline-block;
+    width: 100px;
+    color: #00ff9d;
+}
+
+progress {
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.stat span {
+    margin-left: 10px;
+    color: #ff00ff;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    flex: 1;
+}
