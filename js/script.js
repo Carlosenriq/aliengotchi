@@ -50,7 +50,11 @@ let mascota = {
 // --- CONSTANTES (Sin magic numbers) ---
 const MINIMO = 0;
 const MAXIMO = 100;
-const HAMBRE_ALIMENTAR = 15;    // Cuánto baja el hambre al alimentar
+const HAMBRE_ALIMENTAR = 15;
+const FELICIDAD_JUGAR = 10;    // Cuánto sube la felicidad al jugar
+const ENERGIA_JUGAR = 5;       // Cuánto baja la energía al jugar
+const ENERGIA_DORMIR = 20;      // Cuánto sube la energía al dormir
+// // Cuánto baja el hambre al alimentar
 
 // --- ELEMENTOS DEL DOM ---
 const hambreBar = document.getElementById('hambreBar');
@@ -92,6 +96,17 @@ function alimentar() {
     validarLimites();
 }
 
+function jugar() {
+    mascota.felicidad = mascota.felicidad + FELICIDAD_JUGAR;
+    mascota.energia = mascota.energia - ENERGIA_JUGAR;
+    validarLimites();
+}
+
+function dormir() {
+    mascota.energia = mascota.energia + ENERGIA_DORMIR;
+    validarLimites();
+}
+
 // --- INICIALIZAR JUEGO (desde formulario) ---
 function iniciarJuego(nombre) {
     mascota.nombre = nombre;
@@ -106,12 +121,21 @@ function iniciarJuego(nombre) {
 // --- CONFIGURAR EVENTOS ---
 function configurarBotones() {
     const alimentarBtn = document.getElementById('alimentarBtn');
+    const jugarBtn = document.getElementById('jugarBtn');
+    const dormirBtn = document.getElementById('dormirBtn');
     
     alimentarBtn.addEventListener('click', () => {
         alimentar();
     });
+    
+    jugarBtn.addEventListener('click', () => {
+        jugar();
+    });
+    
+    dormirBtn.addEventListener('click', () => {
+        dormir();
+    });
 }
-
 // --- INICIALIZAR CUANDO CARGA LA PÁGINA ---
 document.addEventListener('DOMContentLoaded', () => {
     // Elementos del formulario de adopción
