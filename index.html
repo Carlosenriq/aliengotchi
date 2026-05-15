@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aliengotchi</title>
+    <title>Aliengotchi - Inazuma Eleven</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -12,9 +12,8 @@
       <div id="adoptionScreen" class="screen active">
         <div class="retro-console">
           <h1 class="glitch">ALIENGOTCHI</h1>
-          <div class="pixel-alien" id="adoptionAlien">👾</div>
+          <div class="pixel-alien">👾</div>
           <p class="instruction">¡Adopta tu nuevo amigo alienígena!</p>
-
           <form id="adoptionForm">
             <input
               type="text"
@@ -31,8 +30,19 @@
       <!-- PANTALLA PRINCIPAL DEL JUEGO -->
       <div id="gameScreen" class="screen">
         <div class="retro-console">
+          <!-- Cabecera con monedas y selector -->
+          <div class="game-header">
+            <div class="monedas-box">
+              <span>🪙</span>
+              <span id="monedasCount">0</span>
+            </div>
+            <button id="abrirSelectorBtn" class="retro-btn small">
+              CAMBIAR ALIEN
+            </button>
+          </div>
+
           <div class="alien-display">
-            <div class="pixel-alien" id="alienImage">👾</div>
+            <div id="alienImage" class="pixel-alien">👾</div>
             <h2 id="alienNameDisplay">Alien</h2>
           </div>
 
@@ -72,6 +82,15 @@
           <p id="gameOverMessage">Tu Aliengotchi ha muerto...</p>
           <button id="restartBtn" class="retro-btn">REINICIAR</button>
         </div>
+      </div>
+    </div>
+
+    <!-- MODAL SELECTOR DE PERSONAJES -->
+    <div id="selectorModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h2 class="glitch">SELECCIONA TU ALIEN</h2>
+        <div id="personajesLista" class="personajes-grid"></div>
+        <button id="cerrarSelectorBtn" class="retro-btn">CERRAR</button>
       </div>
     </div>
 
