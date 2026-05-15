@@ -1,3 +1,4 @@
+*/* Reset y estilo base */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', 'VT323', monospace;
 }
 
 .container {
@@ -19,41 +20,53 @@ body {
     padding: 20px;
 }
 
+/* Pantallas */
 .screen {
     display: none;
 }
 
 .screen.active {
     display: block;
+    animation: fadeIn 0.5s ease;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Consola retro */
 .retro-console {
     background: #1a1f2e;
     border: 4px solid #00ff9d;
     border-radius: 20px;
     padding: 25px;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3),
+        inset 0 0 10px rgba(0, 255, 157, 0.1);
     text-align: center;
 }
 
 .glitch {
     font-size: 2.5em;
     color: #00ff9d;
+    text-shadow: 2px 2px 0 #ff00ff, -2px -2px 0 #00ffff;
     margin-bottom: 20px;
+    letter-spacing: 4px;
 }
 
-.pixel-alien {
-    font-size: 4em;
-}
-
-.instruction {
-    color: #00ff9d;
-    margin: 15px 0;
-}
-
+/* Formulario adopción */
 #adoptionForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 20px;
 }
 
 #alienName {
@@ -61,20 +74,29 @@ body {
     border: 2px solid #00ff9d;
     color: #00ff9d;
     padding: 12px;
-    font-family: monospace;
+    font-size: 1.2em;
+    font-family: 'Courier New', monospace;
     text-align: center;
     border-radius: 10px;
 }
 
+#alienName:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff9d;
+}
+
+/* Botones retro */
 .retro-btn,
 .action-btn {
     background: #0a0e1a;
     border: 2px solid #00ff9d;
     color: #00ff9d;
-    padding: 12px;
-    font-family: monospace;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-family: 'Courier New', monospace;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.2s ease;
     border-radius: 10px;
 }
 
@@ -82,8 +104,17 @@ body {
 .action-btn:hover {
     background: #00ff9d;
     color: #0a0e1a;
+    box-shadow: 0 0 15px #00ff9d;
+    transform: scale(1.02);
 }
 
+.action-btn {
+    flex: 1;
+    font-size: 1em;
+    padding: 10px;
+}
+
+/* Estadísticas */
 .stats-container {
     margin: 25px 0;
     text-align: left;
@@ -97,24 +128,95 @@ body {
     display: inline-block;
     width: 100px;
     color: #00ff9d;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 progress {
-    width: 200px;
+    width: 250px;
     height: 20px;
     border-radius: 10px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #0a0e1a;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #00ff9d;
+    border-radius: 10px;
+    transition: width 0.3s ease;
 }
 
 .stat span {
     margin-left: 10px;
     color: #ff00ff;
+    font-weight: bold;
 }
 
+/* Botones contenedor */
 .buttons-container {
     display: flex;
     gap: 15px;
+    margin-top: 20px;
 }
 
-.action-btn {
-    flex: 1;
+/* Alien display */
+.alien-display {
+    margin-bottom: 20px;
+}
+
+.pixel-alien {
+    font-size: 4em;
+    filter: drop-shadow(0 0 10px #00ff9d);
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#alienNameDisplay {
+    color: #ff00ff;
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .retro-console {
+        padding: 15px;
+    }
+
+    .stat label {
+        width: 70px;
+        font-size: 0.9em;
+    }
+
+    progress {
+        width: 150px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+    }
+
+    .glitch {
+        font-size: 1.8em;
+    }
+}
+
+.instruction {
+    color: #00ff9d;
+    margin-top: 15px;
 }
