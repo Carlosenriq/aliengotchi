@@ -30,7 +30,6 @@
       <!-- PANTALLA PRINCIPAL DEL JUEGO -->
       <div id="gameScreen" class="screen">
         <div class="retro-console">
-          <!-- Cabecera con monedas y selector -->
           <div class="game-header">
             <div class="monedas-box">
               <span>🪙</span>
@@ -46,7 +45,6 @@
             <h2 id="alienNameDisplay">Alien</h2>
           </div>
 
-          <!-- BARRAS DE ESTADO -->
           <div class="stats-container">
             <div class="stat">
               <label>🍔 HAMBRE</label>
@@ -65,7 +63,6 @@
             </div>
           </div>
 
-          <!-- BOTONES DE INTERACCIÓN -->
           <div class="buttons-container">
             <button class="action-btn" id="alimentarBtn">🍕 ALIMENTAR</button>
             <button class="action-btn" id="jugarBtn">🎮 JUGAR</button>
@@ -91,6 +88,52 @@
         <h2 class="glitch">SELECCIONA TU ALIEN</h2>
         <div id="personajesLista" class="personajes-grid"></div>
         <button id="cerrarSelectorBtn" class="retro-btn">CERRAR</button>
+      </div>
+    </div>
+
+    <!-- MODAL MINIJUEGO PENALTIS -->
+    <div id="penalModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h2 class="glitch">¡LANZA UN PENAL!</h2>
+        <div class="campo-penal">
+          <div class="porteria">
+            <div class="portero" id="portero">🧤</div>
+          </div>
+          <div class="opciones">
+            <button class="penal-btn" data-direccion="izquierda">
+              ⬅️ IZQUIERDA
+            </button>
+            <button class="penal-btn" data-direccion="centro">⬆️ CENTRO</button>
+            <button class="penal-btn" data-direccion="derecha">
+              ➡️ DERECHA
+            </button>
+          </div>
+          <div id="resultadoPenal" class="resultado-penal"></div>
+        </div>
+        <button id="cerrarPenalBtn" class="retro-btn">CERRAR</button>
+      </div>
+    </div>
+
+    <!-- MODAL MINIJUEGO COMIDA CAYENDO -->
+    <div id="comidaModal" class="modal" style="display: none">
+      <div class="modal-content" style="width: 700px; max-width: 95%">
+        <h2 class="glitch">🍔 ¡ATRAPA LA COMIDA! 🍕</h2>
+        <div class="comida-game-container">
+          <canvas
+            id="gameCanvas"
+            width="600"
+            height="400"
+            style="border: 2px solid #00ff9d; background: #0a0e1a"
+          ></canvas>
+          <div class="comida-stats">
+            <p>
+              🪙 <span id="comidaMonedasGanadas">0</span> &nbsp;| 🍔
+              <span id="comidaHambreGanada">0</span> &nbsp;| ⏱️
+              <span id="comidaTiempo">15</span>s
+            </p>
+          </div>
+        </div>
+        <button id="cerrarComidaBtn" class="retro-btn">CERRAR</button>
       </div>
     </div>
 
